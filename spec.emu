@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<pre class="metadata">
+title: Future Additions to Temporal
+stage: 0
+contributors: Philip Chimento
+</pre>
+
+<emu-intro id="sec-temporalv2-intro">
+  <h1>Introduction</h1>
+
+  <p>While working on the <a href="https://tc39.es/proposal-temporal">Temporal</a> proposal, the proposal champions gathered user feedback via a survey from over 50 JavaScript developers who had tried out the proposed API, as well as via interviews, and informally from people who had commented or added emoji reactions to GitHub issues.</p>
+
+  <p>There were many suggestions and features that were not included in the proposal for one or more reasons:</p>
+
+  <ul>
+    <li>Seemed useful, but not essential to the success of an already large proposal.</li>
+    <li>Could be implemented in userland in the meantime.</li>
+    <li>Could be implemented in the future in a web-compatible way.</li>
+    <li>Would be useful to see how (and whether) the community fills the feature gap before designing a built-in equivalent.</li>
+  </ul>
+</emu-intro>

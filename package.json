@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "proposal-temporal-v2",
+  "description": "Future additions to Temporal",
+  "scripts": {
+    "build": "npm run build:spec",
+    "build:spec": "ecmarkup --verbose --lint-spec spec.emu index.html"
+  },
+  "homepage": "FIXME",
+  "repository": {
+    "type": "git",
+    "url": "FIXME"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ecmarkup": "^6.0.1"
+  }
+}

@@ -59,7 +59,7 @@ Although these would duplicate the functionality of `compare()`, they would make
 
 ## Proposal
 
-You can browse the [rendered proposal](https://ACCOUNT.github.io/PROJECT/) (currently only an introduction) or browse the [source](https://github.com/ACCOUNT/PROJECT/blob/HEAD/spec.emu).
+You can browse the [rendered proposal](https://js-temporal.github.io/proposal-temporal-v2/) (currently only an introduction) or browse the [source](https://github.com/js-temporal/proposal-temporal-v2/blob/main/spec.emu).
 
 ## Polyfill
 

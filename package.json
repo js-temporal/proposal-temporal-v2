@@ -6,10 +6,10 @@
     "build": "npm run build:spec",
     "build:spec": "ecmarkup --verbose --lint-spec spec.emu index.html"
   },
-  "homepage": "FIXME",
+  "homepage": "https://github.com/js-temporal/proposal-temporal-v2",
   "repository": {
     "type": "git",
-    "url": "FIXME"
+    "url": "https://github.com/js-temporal/proposal-temporal-v2.git"
   },
   "license": "MIT",
   "devDependencies": {

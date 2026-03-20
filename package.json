@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "proposal-temporal-v2",
-  "description": "Future additions to Temporal",
+  "description": "Possible Ways to Extend Temporal in Future TC39 Proposals",
   "scripts": {
     "build": "npm run build:spec",
     "build:spec": "ecmarkup --verbose --lint-spec spec.emu index.html"

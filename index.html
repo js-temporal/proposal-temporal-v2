@@ -1,7 +1,7 @@
 <!doctype html>
 <head><meta charset="utf-8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
-<title>Future Additions to Temporal</title><script type="application/json" id="sdo-map">{}</script><script type="application/json" id="menu-search-biblio">[{"type":"clause","id":"sec-temporalv2-intro","aoid":null,"title":"Introduction","titleHTML":"Introduction","number":"","namespace":"<no location>","location":"","referencingIds":[],"key":"Introduction"},{"type":"clause","id":"sec-copyright-and-software-license","aoid":null,"title":"Copyright & Software License","titleHTML":"Copyright &amp; Software License","number":"A","namespace":"<no location>","location":"","referencingIds":[],"key":"Copyright & Software License"}]</script><script>'use strict';
+<title>Possible Ways to Extend Temporal in Future TC39 Proposals</title><script type="application/json" id="sdo-map">{}</script><script type="application/json" id="menu-search-biblio">[{"type":"clause","id":"sec-temporalv2-intro","aoid":null,"title":"Introduction","titleHTML":"Introduction","number":"","namespace":"<no location>","location":"","referencingIds":[],"key":"Introduction"},{"type":"clause","id":"sec-copyright-and-software-license","aoid":null,"title":"Copyright & Software License","titleHTML":"Copyright &amp; Software License","number":"A","namespace":"<no location>","location":"","referencingIds":[],"key":"Copyright & Software License"}]</script><script>'use strict';
 
 var sdoBox = {
   init: function () {
@@ -1122,6 +1122,39 @@ function installFindLocalReferences() {
 }
 
 document.addEventListener('DOMContentLoaded', installFindLocalReferences);
+var decimalBullet = Array.apply(null, Array(100)).map(function (a, i) {
+  return '' + (i + 1);
+});
+var alphaBullet = Array.apply(null, Array(26)).map(function (a, i) {
+  return String.fromCharCode('a'.charCodeAt(0) + i);
+});
+
+// prettier-ignore
+var romanBullet = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv'];
+// prettier-ignore
+var bullets = [decimalBullet, alphaBullet, romanBullet, decimalBullet, alphaBullet, romanBullet];
+
+function addStepNumberText(ol, parentIndex) {
+  for (var i = 0; i < ol.children.length; ++i) {
+    var child = ol.children[i];
+    var index = parentIndex.concat([i]);
+    var applicable = bullets[Math.min(index.length - 1, 5)];
+    var span = document.createElement('span');
+    span.textContent = (applicable[i] || '?') + '. ';
+    span.style.fontSize = '0';
+    span.setAttribute('aria-hidden', 'true');
+    child.prepend(span);
+    var sublist = child.querySelector('ol');
+    if (sublist != null) {
+      addStepNumberText(sublist, index);
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('emu-alg > ol').forEach(function (ol) {
+    addStepNumberText(ol, []);
+  });
+});
 </script><style>body {
   display: flex;
   font-size: 18px;
@@ -1278,6 +1311,7 @@ emu-note[type='editor'] {
 emu-note > div.note-contents {
   flex-grow: 1;
   flex-shrink: 1;
+  overflow: auto;
 }
 
 emu-note > div.note-contents > p:first-of-type {
@@ -1486,7 +1520,6 @@ h1 span.title {
 
 h1 {
   font-size: 2.67em;
-  margin-top: 2em;
   margin-bottom: 0;
   line-height: 1em;
 }
@@ -1504,51 +1537,6 @@ h5 {
 }
 h6 {
   font-size: 1em;
-}
-
-h1:hover span.utils {
-  display: block;
-}
-
-span.utils {
-  font-size: 18px;
-  line-height: 18px;
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  font-weight: normal;
-}
-
-span.utils:before {
-  content: '⤷';
-  display: inline-block;
-  padding: 0 5px;
-}
-
-span.utils > * {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-h1 span.utils span.anchor a,
-h2 span.utils span.anchor a,
-h3 span.utils span.anchor a,
-h4 span.utils span.anchor a,
-h5 span.utils span.anchor a,
-h6 span.utils span.anchor a {
-  text-decoration: none;
-  font-variant: small-caps;
-}
-
-h1 span.utils span.anchor a:hover,
-h2 span.utils span.anchor a:hover,
-h3 span.utils span.anchor a:hover,
-h4 span.utils span.anchor a:hover,
-h5 span.utils span.anchor a:hover,
-h6 span.utils span.anchor a:hover {
-  color: #333;
 }
 
 emu-intro h1,
@@ -1661,6 +1649,38 @@ emu-clause,
 emu-intro,
 emu-annex {
   display: block;
+}
+
+/* these values are twice the font-size for the <h1> titles for clauses */
+emu-intro,
+emu-clause,
+emu-annex {
+  margin-top: 4em;
+}
+emu-intro emu-intro,
+emu-clause emu-clause,
+emu-annex emu-annex {
+  margin-top: 3.12em;
+}
+emu-intro emu-intro emu-intro,
+emu-clause emu-clause emu-clause,
+emu-annex emu-annex emu-annex {
+  margin-top: 2.5em;
+}
+emu-intro emu-intro emu-intro emu-intro,
+emu-clause emu-clause emu-clause emu-clause,
+emu-annex emu-annex emu-annex emu-annex {
+  margin-top: 2.22em;
+}
+emu-intro emu-intro emu-intro emu-intro emu-intro,
+emu-clause emu-clause emu-clause emu-clause emu-clause,
+emu-annex emu-annex emu-annex emu-annex emu-annex {
+  margin-top: 2em;
+}
+emu-intro emu-intro emu-intro emu-intro emu-intro emu-intro,
+emu-clause emu-clause emu-clause emu-clause emu-clause emu-clause,
+emu-annex emu-annex emu-annex emu-annex emu-annex emu-annex {
+  margin-top: 1.8em;
 }
 
 /* Figures and tables */
@@ -2246,12 +2266,30 @@ li.menu-search-result-term:before {
     display: none;
   }
 }
-</style></head><body><div id="menu-toggle">☰</div><div id="menu-spacer"></div><div id="menu"><div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search..."><div id="menu-search-results" class="inactive"></div></div><div id="menu-pins"><div class="menu-pane-header">Pins</div><ul id="menu-pins-list"></ul></div><div class="menu-pane-header">Table of Contents</div><div id="menu-toc"><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-temporalv2-intro" title="Introduction">Introduction</a></li><li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">A</span> Copyright &amp; Software License</a></li></ol></div></div><div id="spec-container"><h1 class="version first">Stage 0 Draft / February 12, 2021</h1><h1 class="title">Future Additions to Temporal</h1>
+
+[normative-optional] {
+  border-left: 5px solid #ff6600;
+  padding: 0.5em;
+  display: block;
+  background: #ffeedd;
+}
+
+.normative-optional-tag {
+  text-transform: uppercase;
+  color: #884400;
+}
+
+.normative-optional-tag a {
+  color: #884400;
+}
+</style></head><body><div id="menu-toggle">☰</div><div id="menu-spacer"></div><div id="menu"><div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search..."><div id="menu-search-results" class="inactive"></div></div><div id="menu-pins"><div class="menu-pane-header">Pins</div><ul id="menu-pins-list"></ul></div><div class="menu-pane-header">Table of Contents</div><div id="menu-toc"><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-temporalv2-intro" title="Introduction">Introduction</a></li><li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">A</span> Copyright &amp; Software License</a></li></ol></div></div><div id="spec-container"><h1 class="version first">Stage N/A Draft / March 20, 2026</h1><h1 class="title">Possible Ways to Extend Temporal in Future TC39 Proposals</h1>
 
 <emu-intro id="sec-temporalv2-intro">
   <h1>Introduction</h1>
 
-  <p>While working on the <a href="https://tc39.es/proposal-temporal">Temporal</a> proposal, the proposal champions gathered user feedback via a survey from over 50 JavaScript developers who had tried out the proposed API, as well as via interviews, and informally from people who had commented or added emoji reactions to GitHub issues.</p>
+  <p>
+    While working on the <a href="https://tc39.es/proposal-temporal">Temporal</a> proposal, the proposal champions gathered user feedback via surveys from many JavaScript developers who had tried out the proposed API, as well as via interviews, and informally from people who had commented or added reactions to GitHub issues.
+  </p>
 
   <p>There were many suggestions and features that were not included in the proposal for one or more reasons:</p>
 
@@ -2261,12 +2299,18 @@ li.menu-search-result-term:before {
     <li>Could be implemented in the future in a web-compatible way.</li>
     <li>Would be useful to see how (and whether) the community fills the feature gap before designing a built-in equivalent.</li>
   </ul>
+
+  <p>
+    Temporal is now implemented in several browsers and has reached Stage 4 (meaning it's officially part of the language specification), so this repo is a way that TC39 and the community overall can centralize feedback about possible extensions to Temporal in the future.
+    Feel free to add a 👍 to your favorite ideas for extending Temporal, as shown in the <a href="https://github.com/js-temporal/proposal-temporal-v2/issues">GitHub issues</a> of the <code>proposal-temporal-v2</code> repo.
+  </p>
+
 </emu-intro>
 <emu-annex id="sec-copyright-and-software-license">
       <h1><span class="secnum">A</span> Copyright &amp; Software License</h1>
       
       <h2>Copyright Notice</h2>
-      <p>© 2021 Philip Chimento</p>
+      <p>© 2026 Philip Chimento</p>
 
       <h2>Software License</h2>
       <p>All Software contained in this document ("Software") is protected by copyright and is being made available under the "BSD License", included below. This Software may be subject to third party rights (rights from parties other than Ecma International), including patent rights, and no licenses under such third party rights are granted under this license even if the third party concerned is a member of Ecma International. SEE THE ECMA CODE OF CONDUCT IN PATENT MATTERS AVAILABLE AT https://ecma-international.org/memento/codeofconduct.htm FOR INFORMATION REGARDING THE LICENSING OF PATENT CLAIMS THAT ARE REQUIRED TO IMPLEMENT ECMA INTERNATIONAL STANDARDS.</p>

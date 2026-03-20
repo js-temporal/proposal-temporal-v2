@@ -1,27 +1,29 @@
-# Future Additions to Temporal
+# Possible Ways to Extend Temporal in Future TC39 Proposals
 
 ## Status
 
-Champion(s): Currently seeking a champion
+Champion(s): None (yet!). Any of the [ideas](https://github.com/js-temporal/proposal-temporal-v2/issues) in this repo could become a future [TC39 Proposal](https://github.com/tc39/proposals).
 
 Author(s): N/A
 
-Stage: 0
+Stage: N/A
 
 ## Motivation
 
-This proposal is a place to collect feedback from developers using Temporal, and to develop ideas which didn't make it into the original Temporal proposal.
+This repo isn't a TC39 proposal.
+Instead, it's a place to collect feedback about Temporal that could spawn future TC39 proposals for how to extend Temporal which is now a completed (Stage 4) TC39 proposal.
 
-While working on the [Temporal](https://github.com/tc39/proposal-temporal) proposal, the proposal champions gathered user feedback via a survey from over 50 JavaScript developers who had tried out the proposed API, as well as via interviews, and informally from people who had commented or added emoji reactions to GitHub issues.
+While working on the [Temporal](https://github.com/tc39/proposal-temporal) proposal, the proposal champions gathered user feedback via surveys from many JavaScript developers who had tried out the proposed API, as well as via interviews, and informally from people who had commented or added reactions to GitHub issues.
 
 There were many suggestions and features that were not included in the original Temporal proposal for one or more reasons:
+
 - Seemed useful, but not essential to the success of an already large proposal.
 - Could be implemented in userland in the meantime.
 - Could be implemented in the future in a web-compatible way.
 - Would be useful to see how (and whether) the community fills the feature gap before designing a built-in equivalent.
 
-As Temporal progresses towards implementation in browsers and elsewhere, and becomes more and more widely used, it's likely that more developers will have feedback about its rough edges and sticking points.
-Collecting feedback is a good way to decide which of those are worth addressing.
+Temporal is now implemented in several browsers and has reached Stage 4 (meaning it's officially part of the language specification), so this repo is a way that TC39 and the community overall can centralize feedback about possible extensions to Temporal in the future.
+Feel free to add a 👍 to your favorite ideas for extending Temporal, as shown in the [GitHub issues](https://github.com/js-temporal/proposal-temporal-v2/issues) of this repo.
 
 ## Use cases
 

@@ -2,15 +2,17 @@
 <meta charset="utf8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 <pre class="metadata">
-title: Future Additions to Temporal
-stage: 0
+title: Possible Ways to Extend Temporal in Future TC39 Proposals
+stage: N/A
 contributors: Philip Chimento
 </pre>
 
 <emu-intro id="sec-temporalv2-intro">
   <h1>Introduction</h1>
 
-  <p>While working on the <a href="https://tc39.es/proposal-temporal">Temporal</a> proposal, the proposal champions gathered user feedback via a survey from over 50 JavaScript developers who had tried out the proposed API, as well as via interviews, and informally from people who had commented or added emoji reactions to GitHub issues.</p>
+  <p>
+    While working on the <a href="https://tc39.es/proposal-temporal">Temporal</a> proposal, the proposal champions gathered user feedback via surveys from many JavaScript developers who had tried out the proposed API, as well as via interviews, and informally from people who had commented or added reactions to GitHub issues.
+  </p>
 
   <p>There were many suggestions and features that were not included in the proposal for one or more reasons:</p>
 
@@ -20,4 +22,10 @@ contributors: Philip Chimento
     <li>Could be implemented in the future in a web-compatible way.</li>
     <li>Would be useful to see how (and whether) the community fills the feature gap before designing a built-in equivalent.</li>
   </ul>
+
+  <p>
+    Temporal is now implemented in several browsers and has reached Stage 4 (meaning it's officially part of the language specification), so this repo is a way that TC39 and the community overall can centralize feedback about possible extensions to Temporal in the future.
+    Feel free to add a 👍 to your favorite ideas for extending Temporal, as shown in the <a href="https://github.com/js-temporal/proposal-temporal-v2/issues">GitHub issues</a> of the <code>proposal-temporal-v2</code> repo.
+  </p>
+
 </emu-intro>
